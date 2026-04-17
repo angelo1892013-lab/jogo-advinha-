@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🎮 Adivinha o Número</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f0f0f0;
+    }
+
+    .box {
+      margin-top: 50px;
+      background: white;
+      padding: 20px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🎮 Adivinha o número</h1>
+
+<p>Escolhe um número de 1 a 10</p>
+
+<input id="num" type="number">
+
+<br>
+
+<button onclick="verificar()">Tentar</button>
+<button onclick="reiniciar()">🔄 Reiniciar</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+let segredo = Math.floor(Math.random() * 10) + 1;
+
+function verificar() {
+  let valor = document.getElementById("num").value;
+
+  if (valor == segredo) {
+    document.getElementById("msg").innerText = "🎉 Ganhaste!";
+  } else {
+    document.getElementById("msg").innerText = "❌ Errado!";
+  }
+}
+
+function reiniciar() {
+  segredo = Math.floor(Math.random() * 10) + 1;
+  document.getElementById("msg").innerText = "";
+  document.getElementById("num").value = "";
+}
+</script>
+
+</body>
+</html>
