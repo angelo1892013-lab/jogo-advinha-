@@ -1,72 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>🎮 Adivinha o Número</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #f0f0f0;
-    }
-
-    .box {
-      margin-top: 50px;
-      background: white;
-      padding: 20px;
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px gray;
-    }
-
-    button {
-      padding: 10px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-  </style>
+  <title>🎮 Adivinha 0-100</title>
 </head>
 
 <body>
 
-<div class="box">
+<h1>🎮 Adivinha o Número (0 a 100)</h1>
 
-<h1>🎮 Adivinha o número</h1>
-
-<p>Escolhe um número de 1 a 10</p>
+<p>Escreve um número:</p>
 
 <input id="num" type="number">
-
-<br>
 
 <button onclick="verificar()">Tentar</button>
 <button onclick="reiniciar()">🔄 Reiniciar</button>
 
 <p id="msg"></p>
 
-</div>
-
 <script>
-let segredo = Math.floor(Math.random() * 10) + 1;
+let segredo = Math.floor(Math.random() * 101); // 0 a 100
 
 function verificar() {
-  let valor = document.getElementById("num").value;
+  let valor = Number(document.getElementById("num").value);
 
   if (valor == segredo) {
     document.getElementById("msg").innerText = "🎉 Ganhaste!";
-  } else {
-    document.getElementById("msg").innerText = "❌ Errado!";
+  } 
+  else if (valor < segredo) {
+    document.getElementById("msg").innerText = "⬆️ Mais alto!";
+  } 
+  else {
+    document.getElementById("msg").innerText = "⬇️ Mais baixo!";
   }
 }
 
 function reiniciar() {
-  segredo = Math.floor(Math.random() * 10) + 1;
+  segredo = Math.floor(Math.random() * 101);
   document.getElementById("msg").innerText = "";
   document.getElementById("num").value = "";
 }
 </script>
 
 </body>
-</html>
+</html>>
+
