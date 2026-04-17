@@ -1,46 +1,41 @@
+<
+
 <!DOCTYPE html>
 <html>
-<head>
-  <title>🎮 Adivinha 0-100</title>
-</head>
-
 <body>
 
-<h1>🎮 Adivinha o Número (0 a 100)</h1>
-
-<p>Escreve um número:</p>
+<h1>🎮 Adivinha 0 a 100</h1>
 
 <input id="num" type="number">
 
-<button onclick="verificar()">Tentar</button>
-<button onclick="reiniciar()">🔄 Reiniciar</button>
+<button onclick="check()">Tentar</button>
+<button onclick="reset()">Reiniciar</button>
 
 <p id="msg"></p>
 
 <script>
-let segredo = Math.floor(Math.random() * 101); // 0 a 100
+let secret = Math.floor(Math.random() * 101);
 
-function verificar() {
-  let valor = Number(document.getElementById("num").value);
+function check() {
+  let n = document.getElementById("num").value;
 
-  if (valor == segredo) {
+  if (n == secret) {
     document.getElementById("msg").innerText = "🎉 Ganhaste!";
-  } 
-  else if (valor < segredo) {
+  }
+  else if (n < secret) {
     document.getElementById("msg").innerText = "⬆️ Mais alto!";
-  } 
+  }
   else {
     document.getElementById("msg").innerText = "⬇️ Mais baixo!";
   }
 }
 
-function reiniciar() {
-  segredo = Math.floor(Math.random() * 101);
+function reset() {
+  secret = Math.floor(Math.random() * 101);
   document.getElementById("msg").innerText = "";
   document.getElementById("num").value = "";
 }
 </script>
 
 </body>
-</html>>
-
+</html>
